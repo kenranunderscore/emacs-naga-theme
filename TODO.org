@@ -1,0 +1,4 @@
+* Todos
+- Readme
+- Screenshot(s)
+- Maybe add theme files for kitty, Xresources, rofi, polybar, etc.?

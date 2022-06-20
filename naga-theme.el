@@ -24,7 +24,7 @@
 ;;; Commentary:
 
 ;; The main feature of this dark color theme is its usage of a green
-;; foreground color, achieving a retro look while still being easy one
+;; foreground color, achieving a retro look while still being easy on
 ;; the eyes.
 
 ;; Note that while I've been using this as my main theme for nearly a

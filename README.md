@@ -23,6 +23,12 @@ repository and add make the location known to Emacs as follows:
 
 Then `naga` should appear as an option when doing `M-x load-theme`.
 
-## Screenshot(s)
+## Screenshots
+
+### Org, Emacs Lisp, Nix
 
 ![A screenshot of the naga theme, showing org-mode, nix-mode, and some Emacs Lisp](./images/emacs_org_el_nix.png)
+
+### Haskell, Magit, Diredfl
+
+![A screenshot of the naga theme, showing Haskell code, diredfl, and a magit status buffer](./images/emacs_haskell_diredfl_magit.png)

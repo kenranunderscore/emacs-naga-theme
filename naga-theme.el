@@ -171,3 +171,5 @@
          (cons 'naga (create-theme-colors))))
 
 (provide-theme 'naga)
+
+;;; naga-theme.el ends here

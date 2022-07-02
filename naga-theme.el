@@ -187,6 +187,13 @@ green box."
       (helm-ff-dotted-directory (:foreground ,fg :background ,bg))
       (helm-ff-dotted-symlink-directory (:foreground ,dark-blue :background ,bg))
 
+      ;; ivy
+      (ivy-current-match (:inherit 'highlight))
+      (ivy-minibuffer-match-face-1 (:foreground ,fg))
+      (ivy-minibuffer-match-face-2 (:inherit 'orderless-match-face-0))
+      (ivy-minibuffer-match-face-3 (:inherit 'orderless-match-face-1))
+      (ivy-minibuffer-match-face-4 (:inherit 'orderless-match-face-2))
+
       ;; envrc
       (envrc-mode-line-none-face (:foreground ,fg))
       (envrc-mode-line-on-face (:foreground ,string))

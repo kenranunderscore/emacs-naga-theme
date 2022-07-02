@@ -49,7 +49,7 @@
       (list (car entry)
             `((t ,@(cdr entry)))))
     `((default (:foreground ,fg :background ,bg))
-      (minibuffer-prompt (:foreground ,light-olive))
+      (minibuffer-prompt (:foreground ,string))
       (highlight (:foreground ,fg :background ,dark-blue))
       (region (:background ,dark-blue))
       (secondary-selection (:foreground "black" :background ,(color-darken-name "dark green" 7)))
@@ -77,12 +77,13 @@
       (lazy-highlight (:foreground ,fg :background "blue3"))
       (show-paren-match (:foreground ,bg :background "cyan4"))
       (show-paren-mismatch (:foreground "red" :background ,dark-blue))
+      (completions-common-part (:inherit 'orderless-match-face-0))
 
       ;; orderless
-      (orderless-match-face-0 (:foreground ,orange))
-      (orderless-match-face-1 (:foreground ,yellow))
-      (orderless-match-face-2 (:foreground ,pink))
-      (orderless-match-face-3 (:foreground ,light-olive))
+      (orderless-match-face-0 (:foreground ,pink))
+      (orderless-match-face-1 (:foreground ,orange))
+      (orderless-match-face-2 (:foreground ,string))
+      (orderless-match-face-3 (:foreground ,comment-light))
 
       ;; outline-*, and by extension org-level-*
       (outline-1 (:weight bold :foreground ,fg))
@@ -90,7 +91,7 @@
       (outline-3 (:foreground ,cyan))
       (outline-4 (:foreground ,orange))
       (outline-5 (:foreground ,pink))
-      (outline-6 (:foreground ,light-olive))
+      (outline-6 (:foreground ,string))
       (outline-7 (:foreground ,sea-green))
       (outline-8 (:foreground "dark khaki"))
 
@@ -105,7 +106,7 @@
       (which-key-command-description-face (:foreground ,fg))
 
       ;; dired and related
-      (diredfl-dir-name (:foreground ,light-olive))
+      (diredfl-dir-name (:foreground ,string))
       (diredfl-file-name (:foreground ,fg))
       (diredfl-file-suffix (:foreground ,fg))
       (diredfl-ignored-file-name (:inherit (font-lock-comment-face)))
@@ -122,7 +123,7 @@
       (org-document-title (:foreground ,cyan))
       (org-document-info (:foreground ,cyan))
       (org-verbatim (:foreground ,pink))
-      (org-code (:foreground ,light-olive))
+      (org-code (:foreground ,string))
       (org-block (:background "#121212"))
       (org-block-begin-line (:foreground ,comment))
       (org-block-end-line (:inherit 'org-block-begin-line :extend nil))
@@ -133,7 +134,7 @@
       (magit-section-highlight (:background ,dark-blue))
       (magit-branch-local (:foreground ,yellow))
       (magit-branch-remote (:foreground ,cyan))
-      (magit-tag (:foreground ,light-olive))
+      (magit-tag (:foreground ,string))
       (magit-diff-file-heading-highlight (:background ,dark-blue))
       (magit-diff-context-highlight (:background "gray15" :foreground "gray65"))
       (magit-diff-context (:foreground "gray40"))
@@ -155,12 +156,12 @@
       (gnus-header (:inherit default))
 
       ;; helm
-      (helm-match (:foreground ,orange))
+      (helm-match (:inherit 'orderless-match-face-0))
       (helm-source-header (:foreground ,bg :background ,fg))
       (helm-header (:foreground ,sea-green))
       (helm-selection (:foreground ,fg :background ,dark-blue))
       (helm-M-x-key (:foreground ,gold :background ,bg :box ,gold))
-      (helm-ff-directory (:foreground ,light-olive :background ,bg))
+      (helm-ff-directory (:foreground ,string :background ,bg))
       (helm-buffer-directory (:inherit helm-ff-directory))
       (helm-ff-dotted-directory (:foreground ,fg :background ,bg))
       (helm-ff-dotted-symlink-directory (:foreground ,dark-blue :background ,bg)))))
@@ -176,8 +177,8 @@
       (pink "#cc59d2")
       ;; (orange "#dc7612")
       (orange "#ff9000")
-      (light-olive "olivedrab2")
       (comment "#707370")
+      (comment-light "#808580")
       (dark-blue "#01018a")
       (sea-green "medium sea green")
       (orange-red "orange red")

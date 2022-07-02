@@ -42,6 +42,19 @@
 
 (require 'color)
 
+(defgroup naga-theme nil
+  "Configuration options for the `naga' theme."
+  :group 'faces)
+
+(defcustom naga-theme-modeline-style 'green-box
+  "The modeline style to use.  The default style is green text in a
+green box."
+  :group 'naga-theme
+  :type '(choice
+          (const :tag "Green box" green-box)
+          (const :tag "Golden box" golden-box)
+          (const :tag "Filled green" filled-green)))
+
 (defmacro create-theme-colors ()
   "Expects the color variables to be bound."
   '(mapcar
@@ -69,7 +82,13 @@
       (font-lock-warning-face (:slant italic :foreground ,orange-red))
       (fringe (:background ,bg))
       (warning (:foreground ,orange-red :weight regular))
-      (mode-line (:background "#041a04" :foreground ,fg :box ,fg))
+      (mode-line ,(cond
+                   ((eq naga-theme-modeline-style 'golden-box)
+                    `(:background ,bg :foreground ,gold :box ,gold))
+                   ((eq naga-theme-modeline-style 'filled-green)
+                    `(:background ,fg-dark :foreground ,bg :box ,bg))
+                   ((eq naga-theme-modeline-style 'green-box)
+                    `(:background "#041a04" :foreground ,fg :box ,fg))))
       (mode-line-buffer-id (:weight bold))
       (mode-line-emphasis (:weight bold))
       (mode-line-inactive (:box "#555555" :background ,bg :foreground ,comment))

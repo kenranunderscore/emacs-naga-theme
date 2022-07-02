@@ -1,2 +1,13 @@
-* Todos
+* Todos / ideas
+** General
 - Maybe add theme files for kitty, Xresources, rofi, polybar, etc.?
+** Theme
+*** Replace pink /somehow/
+Purple?
+*** Brighter orange
+*** Replace yellow with a more golden variant
+=DarkGoldenrod2= perhaps
+*** Golden modeline
+*** Green, boxless modeline
+*** Darker =magit= diff backgrounds
+*** Diredfl permissions

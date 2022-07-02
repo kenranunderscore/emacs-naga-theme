@@ -97,6 +97,8 @@ green box."
       (show-paren-match (:foreground ,bg :background "cyan4"))
       (show-paren-mismatch (:foreground "red" :background ,dark-blue))
       (completions-common-part (:inherit 'orderless-match-face-0))
+      (error (:foreground ,red))
+      (compilation-mode-line-run (:foreground ,yellow))
 
       ;; orderless
       (orderless-match-face-0 (:foreground ,pink))
@@ -183,24 +185,30 @@ green box."
       (helm-ff-directory (:foreground ,string :background ,bg))
       (helm-buffer-directory (:inherit helm-ff-directory))
       (helm-ff-dotted-directory (:foreground ,fg :background ,bg))
-      (helm-ff-dotted-symlink-directory (:foreground ,dark-blue :background ,bg)))))
+      (helm-ff-dotted-symlink-directory (:foreground ,dark-blue :background ,bg))
+
+      ;; envrc
+      (envrc-mode-line-none-face (:foreground ,fg))
+      (envrc-mode-line-on-face (:foreground ,string))
+      (envrc-mode-line-error-face (:inherit 'error)))))
 
 ;; Set all the colors to their actual values.
 (let ((bg "#040404")
       (fg "#0ac30a")
       (fg-dark "#078807")
-      (yellow "gold2")
-      (gold "DarkGoldenrod2")
-      (cyan "cyan3")
-      (string "olivedrab2")
+      (yellow "#eec900")
+      (gold "#eead0e")
+      (cyan "#00cdcd")
+      (string "#b3ee3a")
       (pink "#cc59d2")
       ;; (orange "#dc7612")
       (orange "#ff9000")
       (comment "#707370")
       (comment-light "#808580")
       (dark-blue "#01018a")
-      (sea-green "medium sea green")
-      (orange-red "orange red")
+      (sea-green "#3cb371")
+      (orange-red "#ff4500")
+      (red "#ff1500")
       (whitespace-fg "#151515"))
   (apply #'custom-theme-set-faces
          (cons 'naga (create-theme-colors))))

@@ -54,7 +54,7 @@
       (region (:background ,dark-blue))
       (secondary-selection (:foreground "black" :background ,(color-darken-name "dark green" 7)))
       (vertical-border (:foreground "gray30"))
-      (help-key-binding (:background "#002000" :box ,fg))
+      (help-key-binding (:foreground ,gold :background ,bg :box ,gold))
       (link (:foreground ,cyan :underline t))
       (font-lock-builtin-face (:foreground ,orange))
       (font-lock-comment-face (:foreground ,comment))
@@ -85,7 +85,7 @@
       (orderless-match-face-3 (:foreground ,light-olive))
 
       ;; outline-*, and by extension org-level-*
-      (outline-1 (:weight semi-bold :foreground ,fg))
+      (outline-1 (:weight bold :foreground ,fg))
       (outline-2 (:foreground ,yellow))
       (outline-3 (:foreground ,cyan))
       (outline-4 (:foreground ,orange))
@@ -152,16 +152,30 @@
       (whitespace-line (:foreground ,orange-red :background ,bg))
 
       ;; gnus and message-mode
-      (gnus-header (:inherit default)))))
+      (gnus-header (:inherit default))
+
+      ;; helm
+      (helm-match (:foreground ,orange))
+      (helm-source-header (:foreground ,bg :background ,fg))
+      (helm-header (:foreground ,sea-green))
+      (helm-selection (:foreground ,fg :background ,dark-blue))
+      (helm-M-x-key (:foreground ,gold :background ,bg :box ,gold))
+      (helm-ff-directory (:foreground ,light-olive :background ,bg))
+      (helm-buffer-directory (:inherit helm-ff-directory))
+      (helm-ff-dotted-directory (:foreground ,fg :background ,bg))
+      (helm-ff-dotted-symlink-directory (:foreground ,dark-blue :background ,bg)))))
 
 ;; Set all the colors to their actual values.
 (let ((bg "#040404")
       (fg "#0ac30a")
+      (fg-dark "#078807")
       (yellow "gold2")
+      (gold "DarkGoldenrod2")
       (cyan "cyan3")
       (string "olivedrab2")
-      (pink "#f474b4")
-      (orange "#dc7612")
+      (pink "#cc59d2")
+      ;; (orange "#dc7612")
+      (orange "#ff9000")
       (light-olive "olivedrab2")
       (comment "#707370")
       (dark-blue "#01018a")

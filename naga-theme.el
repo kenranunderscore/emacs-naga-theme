@@ -220,6 +220,13 @@ The default style is green text in a green box."
   (apply #'custom-theme-set-faces
          (cons 'naga (create-theme-colors))))
 
+;;;###autoload
+(and load-file-name
+     (boundp 'custom-theme-load-path)
+     (add-to-list 'custom-theme-load-path
+                  (file-name-as-directory
+                   (file-name-directory load-file-name))))
+
 (provide-theme 'naga)
 
 ;;; naga-theme.el ends here

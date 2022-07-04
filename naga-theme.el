@@ -47,8 +47,8 @@
   :group 'faces)
 
 (defcustom naga-theme-modeline-style 'green-box
-  "The modeline style to use.  The default style is green text in a
-green box."
+  "The modeline style to use.
+The default style is green text in a green box."
   :group 'naga-theme
   :type '(choice
           (const :tag "Green box" green-box)

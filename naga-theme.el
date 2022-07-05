@@ -175,7 +175,7 @@ The default style is green text in a green box."
       (org-document-info (:foreground ,cyan))
       (org-verbatim (:foreground ,pink))
       (org-code (:foreground ,string))
-      (org-block (:background "#121212"))
+      (org-block (:background ,block-bg))
       (org-block-begin-line (:foreground ,comment))
       (org-block-end-line (:inherit 'org-block-begin-line :extend nil))
       (org-special-keyword (:foreground ,comment))
@@ -187,10 +187,10 @@ The default style is green text in a green box."
       (magit-branch-remote (:foreground ,cyan))
       (magit-tag (:foreground ,string))
       (magit-diff-file-heading-highlight (:background ,dark-blue))
-      (magit-diff-context-highlight (:background "gray15" :foreground "gray65"))
-      (magit-diff-context (:foreground "gray40"))
-      (magit-diff-hunk-heading (:background "gray12" :foreground "gray70"))
-      (magit-diff-hunk-heading-highlight (:background "gray20" :foreground "gray80"))
+      (magit-diff-context-highlight (:background ,block-bg :foreground ,comment-light))
+      (magit-diff-context (:foreground ,comment))
+      (magit-diff-hunk-heading (:background ,bg-green :foreground ,fg-dark))
+      (magit-diff-hunk-heading-highlight (:background ,fg-dark :foreground ,bg))
 
       ;; manpages
       (Man-overstrike (:foreground ,cyan))
@@ -231,6 +231,7 @@ The default style is green text in a green box."
 
 ;; Set all the colors to their actual values.
 (let ((bg "#040404")
+      (bg-green "#042304")
       (fg "#0ac30a")
       (fg-dark "#078807")
       (yellow "#eec900")
@@ -241,12 +242,13 @@ The default style is green text in a green box."
       ;; (orange "#dc7612")
       (orange "#ff9000")
       (comment "#707370")
-      (comment-light "#808580")
+      (comment-light "#909590")
       (dark-blue "#01018a")
       (sea-green "#3cb371")
       (orange-red "#ff4500")
       (red "#ff1500")
-      (whitespace-fg "#151515"))
+      (whitespace-fg "#151515")
+      (block-bg "#121212"))
   (apply #'custom-theme-set-faces
          (cons 'naga (create-theme-colors))))
 

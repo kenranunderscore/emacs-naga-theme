@@ -141,7 +141,7 @@ The default style is green text in a green box."
 
       ;; dired and related
       (diredfl-dir-name (:foreground ,string))
-      (diredfl-dir-heading (:weight bold :foreground ,gold :background "#1f1f1f"))
+      (diredfl-dir-heading (:slant oblique :weight bold :foreground ,sea-green))
       (diredfl-file-name (:foreground ,fg))
       (diredfl-file-suffix (:foreground ,fg))
       (diredfl-ignored-file-name (:inherit (font-lock-comment-face)))

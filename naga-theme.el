@@ -212,6 +212,10 @@ The default style is green text in a green box."
       (whitespace-trailing (:background ,red))
       (whitespace-big-indent (:background ,red))
 
+      ;; shortdoc
+      (shortdoc-section (:inherit 'default))
+      (shortdoc-heading (:inherit 'default :weight bold :height 1.3))
+
       ;; gnus and message-mode
       (gnus-header (:inherit default))
 

@@ -177,8 +177,8 @@ The default style is green text in a green box."
       (org-verbatim (:foreground ,purple))
       (org-code (:foreground ,string))
       (org-block (:background ,block))
-      (org-block-begin-line (:foreground ,comment))
-      (org-block-end-line (:inherit 'org-block-begin-line :extend nil))
+      (org-block-begin-line (:slant oblique :foreground ,comment-dark))
+      (org-block-end-line (:slant oblique :foreground ,comment-dark))
       (org-special-keyword (:foreground ,comment))
 
       ;; magit
@@ -256,6 +256,7 @@ The default style is green text in a green box."
       (orange "#ff9000")
       (comment "#707370")
       (comment-light "#909590")
+      (comment-dark "#353535")
       (grey "#aabaaa")
       (dark-blue "#01018a")
       (sea-green "#3cb371")

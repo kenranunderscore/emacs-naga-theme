@@ -122,6 +122,9 @@ The default style is green text in a green box."
       (company-tooltip-common (:foreground ,orange))
       (company-tooltip-selection (:background ,dark-blue :weight bold))
 
+      ;; corfu
+      (corfu-current (:inherit 'highlight))
+
       ;; which-key
       (which-key-key-face (:foreground ,yellow))
       (which-key-group-description-face (:foreground ,sea-green))

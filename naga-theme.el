@@ -125,6 +125,9 @@ The default style is green text in a green box."
 
       ;; corfu
       (corfu-current (:inherit 'highlight))
+      (corfu-default (:background "#090909"))
+      (corfu-border (:background ,fg-dark))
+      (corfu-bar (:background ,comment-light))
 
       ;; which-key
       (which-key-key-face (:foreground ,yellow))

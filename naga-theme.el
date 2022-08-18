@@ -175,8 +175,8 @@ The default style is green text in a green box."
       (line-number-current-line (:foreground "dark green"))
 
       ;; org
-      (org-todo (:foreground ,orange-red))
-      (org-done (:foreground ,fg))
+      (org-todo (:foreground ,orange-red :weight bold))
+      (org-done (:foreground ,fg :weight bold))
       (org-headline-todo (:foreground ,orange-red))
       (org-headline-done (:foreground ,comment :strike-through t))
       (org-document-title (:foreground ,cyan))

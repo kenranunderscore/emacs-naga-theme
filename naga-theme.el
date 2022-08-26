@@ -101,6 +101,8 @@ The default style is green text in a green box."
       (error (:foreground ,red))
       (compilation-mode-line-run (:foreground ,yellow))
       (cursor (:background ,red))
+      (shadow (:foreground ,comment-light))
+      (match (:foreground ,yellow :background ,bg-green :slant oblique))
 
       ;; orderless
       (orderless-match-face-0 (:foreground ,purple))

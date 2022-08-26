@@ -249,7 +249,10 @@ The default style is green text in a green box."
       ;; envrc
       (envrc-mode-line-none-face (:foreground ,fg))
       (envrc-mode-line-on-face (:foreground ,string))
-      (envrc-mode-line-error-face (:inherit 'error)))))
+      (envrc-mode-line-error-face (:inherit 'error))
+
+      ;; eglot
+      (eglot-highlight-symbol-face (:foreground ,fg :background ,bg-green :weight bold)))))
 
 ;; Set all the colors to their actual values.
 (let ((bg "#040404")

@@ -100,7 +100,7 @@ The default style is green text in a green box."
       (completions-common-part (:inherit 'orderless-match-face-0))
       (error (:foreground ,red))
       (compilation-mode-line-run (:foreground ,yellow))
-      (cursor (:background ,red))
+      (cursor (:background ,fg))
       (shadow (:foreground ,comment-light))
       (match (:foreground ,yellow :background ,bg-green :slant oblique))
 

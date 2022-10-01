@@ -112,7 +112,7 @@ The default style is green text in a green box."
 
       ;; outline-*, and by extension org-level-*
       (outline-1 (:weight bold :foreground ,fg))
-      (outline-2 (:foreground ,yellow))
+      (outline-2 (:foreground ,gold))
       (outline-3 (:foreground ,cyan))
       (outline-4 (:foreground ,orange))
       (outline-5 (:foreground ,purple))

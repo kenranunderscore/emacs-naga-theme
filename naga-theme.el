@@ -275,7 +275,7 @@ The default style is green text in a green box."
       (orange-red "#ff4500")
       (red "#ff1500")
       (whitespace-fg "#555f55")
-      (block "#121212")
+      (block "#060606")
       (block-light "#252525"))
   (apply #'custom-theme-set-faces
          (cons 'naga (create-theme-colors))))

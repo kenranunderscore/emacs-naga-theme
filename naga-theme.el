@@ -77,7 +77,7 @@ The default style is green text in a green box."
       (font-lock-keyword-face (:foreground ,yellow))
       (font-lock-preprocessor-face (:inherit (font-lock-constant-face)))
       (font-lock-string-face (:foreground ,string))
-      (font-lock-type-face (:foreground "olivedrab3"))
+      (font-lock-type-face (:foreground ,sea-green))
       (font-lock-variable-name-face (:foreground ,sea-green))
       (font-lock-warning-face (:slant italic :foreground ,orange-red))
       (fringe (:background ,bg))

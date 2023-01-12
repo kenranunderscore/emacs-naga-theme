@@ -181,7 +181,7 @@ The default style is green text in a green box."
       (org-done (:foreground ,fg :weight bold))
       (org-headline-todo (:foreground ,orange-red))
       (org-headline-done (:foreground ,comment :strike-through t))
-      (org-document-title (:foreground ,cyan))
+      (org-document-title (:foreground ,cyan :weight bold))
       (org-document-info (:foreground ,cyan))
       (org-verbatim (:foreground ,purple))
       (org-code (:foreground ,string))

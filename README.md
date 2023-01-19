@@ -13,15 +13,44 @@ strings.
 
 ## Installation
 
+`naga` is [on MELPA](https://melpa.org/#/naga-theme).  Once you have
+MELPA enabled as a package repository, you could do
+
+```
+M-x package-install naga-theme RET
+```
+
+After installing the package (see below for alternative ways to
+install it), `naga` should appear as an option in `M-x load-theme`.
+(Note that in Emacs multiple themes might be "enabled" at the same
+time, so if you get weird results, make sure to `M-x disable-theme`
+other themes.)
+
+### `use-package`
+
+Add the following to your `init.el`:
+
+```elisp
+(use-package naga-theme
+  :config
+  (load-theme 'naga t))
+```
+
+### Manual installation
+
 I'm planning to put this on MELPA at some point.  For now, clone this
 repository and add make the location known to Emacs as follows:
 
 ```elisp
 (add-to-list 'custom-theme-load-path
              "~/path/to/emacs-naga-theme")
+(load-theme 'naga t)
 ```
 
-Then `naga` should appear as an option when doing `M-x load-theme`.
+## Customization
+
+For now only the mode line style is customizable.  Check out `M-x
+customize-group naga-theme RET`.
 
 ## Screenshots
 

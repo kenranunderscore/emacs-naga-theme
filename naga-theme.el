@@ -251,6 +251,19 @@ The default style is green text in a green box."
       (envrc-mode-line-on-face (:foreground ,string))
       (envrc-mode-line-error-face (:inherit 'error))
 
+      ;; vterm NOTE: vterm doesn't use the whole face description (or
+      ;; these would not make sense at all), but rather seems to pick
+      ;; either foreground or background color as actual foreground,
+      ;; hence the duplicated color values.
+      (vterm-color-red (:foreground ,red :background ,red))
+      (vterm-color-blue (:foreground ,cyan :background ,cyan))
+      (vterm-color-black (:foreground ,comment :background ,comment))
+      (vterm-color-yellow (:foreground ,gold :background ,gold))
+      (vterm-color-green (:foreground ,string :background ,string))
+      (vterm-color-cyan (:foreground ,cyan :background ,cyan))
+      (vterm-color-white (:foreground ,fg :background ,bg))
+      (vterm-color-magenta (:foreground ,purple :background ,purple))
+
       ;; eglot
       (eglot-highlight-symbol-face (:foreground ,fg :background ,bg-green :weight bold)))))
 

@@ -93,7 +93,7 @@ The default style is green text in a green box."
       (mode-line-buffer-id (:weight bold))
       (mode-line-emphasis (:weight bold))
       (mode-line-inactive (:box "#555555" :background ,bg :foreground ,comment))
-      (isearch (:foreground ,bg :weight semi-bold :background ,fg))
+      (isearch (:foreground ,bg :weight semi-bold :background ,gold))
       (lazy-highlight (:foreground ,fg :background "blue3"))
       (show-paren-match (:foreground ,bg :background ,red))
       (show-paren-mismatch (:foreground "red" :background ,dark-blue))

@@ -33,6 +33,9 @@ Add the following to your `init.el`:
 ```elisp
 (use-package naga-theme
   :config
+  ;; If you with to disable accentuated org blocks
+  (setq naga-theme-use-lighter-org-block-background nil)
+  (setq naga-theme-modeline-style 'filled-green)
   (load-theme 'naga t))
 ```
 
@@ -49,8 +52,7 @@ repository and add make the location known to Emacs as follows:
 
 ## Customization
 
-For now only the mode line style is customizable.  Check out `M-x
-customize-group naga-theme RET`.
+Check out `M-x customize-group naga-theme RET`.
 
 ## Screenshots
 

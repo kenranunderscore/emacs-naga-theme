@@ -55,6 +55,14 @@ The default style is green text in a green box."
           (const :tag "Golden box" golden-box)
           (const :tag "Filled green" filled-green)))
 
+(defcustom naga-theme-use-lighter-org-block-background t
+  "Whether to set a background for the `org-block' face.
+The default is to use a slightly lighter color than the usual
+background.  Setting this to `nil' means blocks have no special
+background color."
+  :group 'naga-theme
+  :type 'boolean)
+
 (defmacro create-theme-colors ()
   "Expects the color variables to be bound."
   '(mapcar
@@ -185,7 +193,9 @@ The default style is green text in a green box."
       (org-document-info (:foreground ,cyan))
       (org-verbatim (:foreground ,purple))
       (org-code (:foreground ,string))
-      (org-block (:background ,block))
+      (org-block (:background ,(if naga-theme-use-lighter-org-block-background
+                                   block
+                                 bg)))
       (org-block-begin-line (:slant oblique :foreground ,comment-dark))
       (org-block-end-line (:slant oblique :foreground ,comment-dark))
       (org-special-keyword (:foreground ,comment))

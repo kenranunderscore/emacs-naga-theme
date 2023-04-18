@@ -79,7 +79,8 @@ By default, the cursor uses the foreground color."
       (minibuffer-prompt (:foreground ,string))
       (highlight (:foreground ,fg :background ,dark-blue))
       (region (:background ,dark-blue))
-      (secondary-selection (:foreground "black" :background ,(color-darken-name "dark green" 7)))
+      (secondary-selection
+       (:foreground "black" :background ,(color-darken-name "dark green" 7)))
       (vertical-border (:foreground "gray30"))
       (help-key-binding (:foreground ,fg :background ,bg-green :box ,fg))
       (link (:foreground ,cyan :underline t))
@@ -109,7 +110,10 @@ By default, the cursor uses the foreground color."
       (mode-line-inactive (:box "#555555" :background ,bg :foreground ,comment))
       (isearch (:foreground ,bg :weight semi-bold :background ,gold))
       (lazy-highlight (:foreground ,fg :background "blue3"))
-      (show-paren-match (:foreground ,bg :background ,red))
+      (show-paren-match
+       (:foreground ,bg :background ,(if naga-theme-use-red-cursor
+                                         fg
+                                       red)))
       (show-paren-mismatch (:foreground "red" :background ,dark-blue))
       (completions-common-part (:inherit 'orderless-match-face-0))
       (error (:foreground ,red))

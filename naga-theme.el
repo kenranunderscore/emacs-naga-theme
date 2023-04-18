@@ -63,6 +63,12 @@ background color."
   :group 'naga-theme
   :type 'boolean)
 
+(defcustom naga-theme-use-red-cursor nil
+  "Whether to use a more visible, bright red color for the cursor.
+By default, the cursor uses the foreground color."
+  :group 'naga-theme
+  :type 'boolean)
+
 (defmacro create-theme-colors ()
   "Expects the color variables to be bound."
   '(mapcar
@@ -108,7 +114,9 @@ background color."
       (completions-common-part (:inherit 'orderless-match-face-0))
       (error (:foreground ,red))
       (compilation-mode-line-run (:foreground ,yellow))
-      (cursor (:background ,fg))
+      (cursor (:background ,(if naga-theme-use-red-cursor
+                                red
+                              fg)))
       (shadow (:foreground ,comment-light))
       (match (:foreground ,yellow :background ,bg-green :slant oblique))
 

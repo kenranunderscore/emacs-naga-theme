@@ -69,6 +69,12 @@ By default, the cursor uses the foreground color."
   :group 'naga-theme
   :type 'boolean)
 
+(defcustom naga-theme-surround-org-blocks t
+  "Whether to surround org blocks by underlining (overlining) the
+beginning (or ending) line."
+  :group 'naga-theme
+  :type 'boolean)
+
 (defmacro create-theme-colors ()
   "Expects the color variables to be bound."
   '(mapcar
@@ -208,8 +214,8 @@ By default, the cursor uses the foreground color."
       (org-block (:background ,(if naga-theme-use-lighter-org-block-background
                                    block
                                  bg)))
-      (org-block-begin-line (:slant oblique :foreground ,comment-dark))
-      (org-block-end-line (:slant oblique :foreground ,comment-dark))
+      (org-block-begin-line (:slant oblique :foreground ,comment-dark :underline ,naga-theme-surround-org-blocks :extend t))
+      (org-block-end-line (:slant oblique :foreground ,comment-dark :overline ,naga-theme-surround-org-blocks :extend t))
       (org-special-keyword (:foreground ,comment))
 
       ;; magit

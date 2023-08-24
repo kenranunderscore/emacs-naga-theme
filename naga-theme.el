@@ -234,6 +234,9 @@ beginning (or ending) line."
       ;; mu4e
       (mu4e-highlight-face (:weight semi-bold :foreground ,orange))
 
+      ;; notmuch
+      (notmuch-tag-unread (:weight semi-bold :foreground ,gold))
+
       ;; whitespace-mode
       (whitespace-space (:foreground ,whitespace-fg :background ,bg))
       (whitespace-tab (:foreground ,whitespace-fg :background ,bg))

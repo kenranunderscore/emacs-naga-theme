@@ -329,3 +329,7 @@ beginning (or ending) line."
 (provide-theme 'naga)
 
 ;;; naga-theme.el ends here
+
+;; Local Variables:
+;; fill-column: 70
+;; End:

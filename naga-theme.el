@@ -114,8 +114,8 @@ beginning (or ending) line."
       (mode-line-buffer-id (:weight bold))
       (mode-line-emphasis (:weight bold))
       (mode-line-inactive (:box "#555555" :background ,bg :foreground ,comment))
-      (isearch (:foreground ,bg :weight semi-bold :background ,gold))
-      (lazy-highlight (:foreground ,fg :background "blue3"))
+      (isearch (:foreground ,bg :weight semi-bold :background ,gold :underline t))
+      (lazy-highlight (:foreground ,fg :background "blue3" :underline t))
       (show-paren-match
        (:foreground ,bg :background ,(if naga-theme-use-red-cursor
                                          fg

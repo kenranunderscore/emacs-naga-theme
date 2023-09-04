@@ -119,7 +119,7 @@ beginning (or ending) line."
                                          fg
                                        red)))
       (show-paren-mismatch (:foreground "red" :background ,dark-blue))
-      (completions-common-part (:foreground ,purple))
+      (completions-common-part (:foreground ,purple :background "#160617"))
       (error (:foreground ,red))
       (compilation-mode-line-run (:foreground ,yellow))
       (cursor (:background ,(if naga-theme-use-red-cursor
@@ -130,9 +130,9 @@ beginning (or ending) line."
 
       ;; orderless
       (orderless-match-face-0 (:inherit 'completions-common-part))
-      (orderless-match-face-1 (:foreground ,orange))
-      (orderless-match-face-2 (:foreground ,string))
-      (orderless-match-face-3 (:foreground ,comment-light))
+      (orderless-match-face-1 (:foreground ,orange :background "#190e00"))
+      (orderless-match-face-2 (:foreground ,string :background "#131b02"))
+      (orderless-match-face-3 (:foreground ,comment-light :background "#0e0f0e"))
 
       ;; outline-*, and by extension org-level-*
       (outline-1 (:weight bold :foreground ,fg))

@@ -280,6 +280,13 @@ beginning (or ending) line."
       (envrc-mode-line-on-face (:foreground ,string))
       (envrc-mode-line-error-face (:inherit 'error))
 
+      ;; hydra
+      (hydra-face-red (:foreground ,orange-red))
+      (hydra-face-blue (:foreground ,cyan))
+      (hydra-face-pink (:foreground ,purple))
+      (hydra-face-amaranth (:foreground ,amaranth))
+      (hydra-face-teal (:foreground ,sea-green))
+
       ;; vterm NOTE: vterm doesn't use the whole face description (or
       ;; these would not make sense at all), but rather seems to pick
       ;; either foreground or background color as actual foreground,
@@ -318,7 +325,8 @@ beginning (or ending) line."
       (red "#ff1500")
       (whitespace-fg "#555f55")
       (block "#060606")
-      (block-light "#252525"))
+      (block-light "#252525")
+      (amaranth "#e52b50"))
   (apply #'custom-theme-set-faces
          (cons 'naga (create-theme-colors))))
 

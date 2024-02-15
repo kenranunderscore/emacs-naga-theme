@@ -309,7 +309,10 @@ beginning (or ending) line."
       (vterm-color-magenta (:foreground ,purple :background ,purple))
 
       ;; eglot
-      (eglot-highlight-symbol-face (:foreground ,fg :background ,bg-green :weight bold)))))
+      (eglot-highlight-symbol-face (:foreground ,fg :background ,bg-green :weight bold))
+
+      ;; tuareg (OCaml)
+      (tuareg-font-lock-governing-face (:foreground ,amaranth)))))
 
 ;; Set all the colors to their actual values.
 (let ((bg "#040404")

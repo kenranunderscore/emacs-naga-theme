@@ -1,13 +1,16 @@
-# Naga: an Emacs theme (WIP)
+# Naga: an Emacs theme
 
 The main feature of this dark color theme is its usage of a green foreground
 color, achieving a retro look while still being easy on the eyes.
 
 Note that while I've been using this as my main theme for nearly a year now, it
-still is very much a work in progress, as I've only styled and checked the
-packages I actually use so far. Some main colors might still be subject to
-change, I'm mainly unhappy with pink (maybe try out a more purple-ish tone
-instead) and the coloring of strings.
+only styles packages I actually use so far. Some of the colors might still be
+subject to change; I'm mainly unhappy with pink (maybe try out a more purple-ish
+tone instead) and the coloring of strings. [Screenshots below](#screenshots),
+but note that they're a bit outdated color-wise.
+
+Feel free to create issues in case you find something that doesn't look good
+with `naga`, and I'll check it out.
 
 ## Installation
 

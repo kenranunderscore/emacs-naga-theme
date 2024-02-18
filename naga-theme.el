@@ -312,7 +312,8 @@ beginning (or ending) line."
       (eglot-highlight-symbol-face (:foreground ,fg :background ,bg-green :weight bold))
 
       ;; tuareg (OCaml)
-      (tuareg-font-lock-governing-face (:foreground ,amaranth)))))
+      (tuareg-font-lock-governing-face (:foreground ,fg-medium :weight bold))
+      )))
 
 ;; Set all the colors to their actual values.
 (let ((bg "#040404")

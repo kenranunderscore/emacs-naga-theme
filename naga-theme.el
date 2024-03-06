@@ -323,7 +323,7 @@ beginning (or ending) line."
       (fg-dark "#078807")
       (yellow "#eec900")
       (gold "#eead0e")
-      (cyan "#00cdcd")
+      (cyan "#00bfb0")
       (string "#b3ee3a")
       (purple "#cc59d2")
       (orange "#ff9000")

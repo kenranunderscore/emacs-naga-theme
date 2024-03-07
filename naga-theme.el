@@ -1,6 +1,6 @@
 ;;; naga-theme.el --- Dark color theme with green foreground color
 
-;; Copyright (C) 2021-2022 Johannes Maier
+;; Copyright (C) 2021-2024 Johannes Maier
 
 ;; Author: Johannes Maier <johannes.maier@mailbox.org>
 ;; Version: 0.1

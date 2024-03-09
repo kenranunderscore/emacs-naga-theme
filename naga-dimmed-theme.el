@@ -1,4 +1,4 @@
-;;; naga-theme.el --- Dark color theme with green foreground color
+;;; naga-dimmed-theme.el --- Dark color theme with green foreground color
 
 ;; Author: Johannes Maier <johannes.maier@mailbox.org>
 
@@ -18,12 +18,13 @@
 
 ;;; Commentary:
 
-;; The default version of `naga'.
+;; The dimmed version of `naga', with more muted colors and fewer
+;; different ones, giving it an overall even more green look.
 
 ;;; Code:
 
-(deftheme naga
-  "Created 2021-09-26.")
+(deftheme naga-dimmed
+  "Created 2024-03-09.")
 
 ;;;###autoload
 (when (and load-file-name
@@ -34,36 +35,37 @@
     (unless (featurep 'naga-base)
       (load-file (expand-file-name "naga-base.el" dir)))))
 
-(let ((bg "#040404")
+;; Set all the colors to their actual values.
+(let ((bg "#060606")
       (bg-green "#041a04")
-      (fg "#0ac30a")
-      (fg-medium "#089e08")
+      (fg "#088e08")
+      (fg-medium "#088e08")
       (fg-dark "#078807")
-      (yellow "#eec900")
+      (yellow "#b89c00")
       (gold "#eead0e")
-      (cyan "#00bfb0")
-      (string "#b3ee3a")
-      (purple "#cc59d2")
-      (orange "#ff9000")
+      (cyan "#00afa0")
+      (string "#83bc10")
+      (purple "#825c84")
+      (orange "#d99000")
       (comment "#707370")
       (comment-light "#909590")
       (comment-dark "#353535")
-      (docstring "olivedrab4")
+      (docstring "#4f710a")
       (grey "#aabaaa")
-      (dark-blue "#01018a")
-      (sea-green "#3cb371")
+      (dark-blue "#01073a")
+      (sea-green "#0eb40e")
       (orange-red "#ff4500")
-      (red "#ff1500")
+      (red "#ef1500")
       (whitespace-fg "#555f55")
       (block "#060606")
       (block-light "#252525")
       (amaranth "#e52b50"))
   (apply #'custom-theme-set-faces
-         (cons 'naga (naga--create-theme-colors))))
+         (cons 'naga-dimmed (naga--create-theme-colors))))
 
-(provide-theme 'naga)
+(provide-theme 'naga-dimmed)
 
-;;; naga-theme.el ends here
+;;; naga-dimmed-theme.el ends here
 
 ;; Local Variables:
 ;; fill-column: 70

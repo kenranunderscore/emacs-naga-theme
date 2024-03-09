@@ -1,16 +1,19 @@
 # Naga: an Emacs theme
 
-The main feature of this dark color theme is its usage of a green foreground
+The main feature of these dark color themes is their usage of a green foreground
 color, achieving a retro look while still being easy on the eyes.
 
 Note that while I've been using this as my main theme for nearly a year now, it
-only styles packages I actually use so far. Some of the colors might still be
-subject to change; I'm mainly unhappy with pink (maybe try out a more purple-ish
-tone instead) and the coloring of strings. [Screenshots below](#screenshots),
-but note that they're a bit outdated color-wise.
+only styles packages I actually use plus a small number of others.
+
+Aside from the main `naga` theme, this package now ships with a more muted,
+lower-contrast variant called `naga-dimmed`.
+
+[Screenshots below](#screenshots), but note that they're a bit outdated
+color-wise.
 
 Feel free to create issues in case you find something that doesn't look good
-with `naga`, and I'll check it out.
+with any variant, and I'll check it out.
 
 ## Installation
 
@@ -22,9 +25,9 @@ M-x package-install naga-theme RET
 ```
 
 After installing the package (see below for alternative ways to install it),
-`naga` should appear as an option in `M-x load-theme`. (Note that in Emacs
-multiple themes might be "enabled" at the same time, so if you get weird
-results, make sure to `M-x disable-theme` other themes.)
+`naga` and `naga-dimmed` should appear as options in `M-x load-theme`. (Note
+that in Emacs multiple themes might be "enabled" at the same time, so if you get
+weird results, make sure to `M-x disable-theme` other themes.)
 
 ### `use-package`
 
@@ -33,7 +36,7 @@ Add the following to your `init.el`:
 ```elisp
 (use-package naga-theme
   :config
-  ;; If you with to disable accentuated org blocks
+  ;; If you wish to disable accentuated org blocks
   (setq naga-theme-use-lighter-org-block-background nil)
   (setq naga-theme-modeline-style 'filled-green)
   (load-theme 'naga t))
@@ -41,18 +44,19 @@ Add the following to your `init.el`:
 
 ### Manual installation
 
-I'm planning to put this on MELPA at some point. For now, clone this repository
-and add make the location known to Emacs as follows:
+After cloning this repository you need to make the location known to Emacs as
+follows:
 
 ```elisp
 (add-to-list 'custom-theme-load-path
-             "~/path/to/emacs-naga-theme")
+             "/path/to/emacs-naga-theme")
 (load-theme 'naga t)
 ```
 
 ## Customization
 
-Check out `M-x customize-group naga-theme RET`.
+There are a couple of styling options available. It's best to check out
+`M-x customize-group naga-theme RET`.
 
 ## Screenshots
 

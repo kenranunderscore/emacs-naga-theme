@@ -1,5 +1,7 @@
 # Naga: an Emacs theme
 
+[![MELPA](https://melpa.org/packages/naga-theme-badge.svg)](https://melpa.org/#/naga-theme)
+
 The main feature of these dark color themes is their usage of a green foreground
 color, achieving a retro look while still being easy on the eyes.
 

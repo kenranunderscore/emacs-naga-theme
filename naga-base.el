@@ -140,9 +140,10 @@ beginning (or ending) line."
      (outline-8 (:foreground "dark khaki"))
 
      ;; company
-     (company-tooltip (:background "gray10"))
+     (company-tooltip (:background ,bg))
      (company-tooltip-common (:foreground ,orange))
      (company-tooltip-selection (:background ,dark-blue :weight bold))
+     (company-tooltip-annotation (:foreground ,comment))
 
      ;; corfu
      (corfu-current (:inherit 'highlight))

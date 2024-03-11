@@ -309,6 +309,7 @@ beginning (or ending) line."
 
      ;; tuareg (OCaml)
      (tuareg-font-lock-governing-face (:foreground ,fg-medium :weight bold :underline t))
+     (tuareg-font-lock-operator-face (:foreground ,orange))
      )))
 
 (provide 'naga-base)

@@ -36,7 +36,7 @@
       (load-file (expand-file-name "naga-base.el" dir)))))
 
 ;; Set all the colors to their actual values.
-(let ((bg "#060606")
+(let ((bg "#040404")
       (bg-green "#041a04")
       (fg "#088e08")
       (fg-medium "#088e08")

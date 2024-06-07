@@ -208,6 +208,7 @@ beginning (or ending) line."
      (org-block-begin-line (:slant oblique :foreground ,comment-dark :underline ,naga-theme-surround-org-blocks :extend t))
      (org-block-end-line (:slant oblique :foreground ,comment-dark :overline ,naga-theme-surround-org-blocks :extend t))
      (org-special-keyword (:foreground ,comment))
+     (org-link (:foreground ,cyan))
 
      ;; magit
      (magit-section-heading (:foreground ,orange :weight semi-bold))

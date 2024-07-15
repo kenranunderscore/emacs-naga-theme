@@ -113,6 +113,7 @@ beginning (or ending) line."
      (show-paren-mismatch (:foreground "red" :background ,dark-blue))
      (completions-common-part (:foreground ,purple :background "#160617"))
      (error (:foreground ,red))
+     (success (:foreground ,fg))
      (compilation-mode-line-run (:foreground ,yellow))
      (cursor (:background ,(if naga-theme-use-red-cursor
                                red

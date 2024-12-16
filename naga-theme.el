@@ -48,10 +48,12 @@
       (comment "#707370")
       (comment-light "#909590")
       (comment-dark "#353535")
-      (docstring "olivedrab4")
+      (docstring "#698b22")
       (grey "#aabaaa")
       (dark-blue "#01018a")
-      (sea-green "#3cb371")
+      (alt-green (if naga-theme-use-legacy-sea-green
+                     "#3cb371"
+                   "#60c410"))
       (orange-red "#ff4500")
       (red "#ff1500")
       (whitespace-fg "#555f55")

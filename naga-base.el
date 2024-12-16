@@ -68,6 +68,12 @@ beginning (or ending) line."
   :group 'naga-theme
   :type 'boolean)
 
+(defcustom naga-theme-use-legacy-sea-green nil
+  "Whether the legacy 'sea green' color is to be used (for types,
+for instance) instead of the newer reddish green."
+  :group 'naga-theme
+  :type 'boolean)
+
 (defun naga--create-theme-colors ()
   "Expects the color variables to be bound."
   (mapcar
@@ -91,8 +97,8 @@ beginning (or ending) line."
      (font-lock-keyword-face (:foreground ,yellow))
      (font-lock-preprocessor-face (:inherit (font-lock-constant-face)))
      (font-lock-string-face (:foreground ,string))
-     (font-lock-type-face (:foreground ,sea-green))
-     (font-lock-variable-name-face (:foreground ,sea-green))
+     (font-lock-type-face (:foreground ,alt-green))
+     (font-lock-variable-name-face (:foreground ,alt-green))
      (font-lock-warning-face (:slant italic :foreground ,orange-red))
      (fringe (:background ,bg))
      (warning (:foreground ,orange-red :weight regular))
@@ -134,7 +140,7 @@ beginning (or ending) line."
      (outline-4 (:foreground ,orange))
      (outline-5 (:foreground ,purple))
      (outline-6 (:foreground ,string))
-     (outline-7 (:foreground ,sea-green))
+     (outline-7 (:foreground ,alt-green))
      (outline-8 (:foreground "dark khaki"))
 
      ;; company
@@ -151,7 +157,7 @@ beginning (or ending) line."
 
      ;; which-key
      (which-key-key-face (:foreground ,yellow))
-     (which-key-group-description-face (:foreground ,sea-green))
+     (which-key-group-description-face (:foreground ,alt-green))
      (which-key-command-description-face (:foreground ,fg))
 
      ;; marginalia
@@ -168,7 +174,7 @@ beginning (or ending) line."
 
      ;; dired and related
      (diredfl-dir-name (:foreground ,string))
-     (diredfl-dir-heading (:slant oblique :weight bold :foreground ,sea-green))
+     (diredfl-dir-heading (:slant oblique :weight bold :foreground ,alt-green))
      (diredfl-file-name (:foreground ,fg))
      (diredfl-file-suffix (:foreground ,fg))
      (diredfl-ignored-file-name (:inherit (font-lock-comment-face)))
@@ -263,7 +269,7 @@ beginning (or ending) line."
      ;; helm
      (helm-match (:inherit 'orderless-match-face-0))
      (helm-source-header (:foreground ,bg :background ,fg))
-     (helm-header (:foreground ,sea-green))
+     (helm-header (:foreground ,alt-green))
      (helm-selection (:foreground ,fg :background ,dark-blue))
      (helm-M-x-key (:foreground ,gold :background ,bg :box ,gold))
      (helm-ff-directory (:foreground ,string :background ,bg))
@@ -288,7 +294,7 @@ beginning (or ending) line."
      (hydra-face-blue (:foreground ,cyan))
      (hydra-face-pink (:foreground ,purple))
      (hydra-face-amaranth (:foreground ,amaranth))
-     (hydra-face-teal (:foreground ,sea-green))
+     (hydra-face-teal (:foreground ,alt-green))
 
      ;; vterm NOTE: vterm doesn't use the whole face description (or
      ;; these would not make sense at all), but rather seems to pick
@@ -312,6 +318,9 @@ beginning (or ending) line."
 
      ;; vertico-posframe
      (vertico-posframe-border (:background ,comment-dark))
+
+     ;; sly
+     (sly-mrepl-output-face (:foreground ,purple))
      )))
 
 (provide 'naga-base)

@@ -53,7 +53,9 @@
       (docstring "#4f710a")
       (grey "#aabaaa")
       (dark-blue "#01073a")
-      (sea-green "#0eb40e")
+      (alt-green (if naga-theme-use-legacy-sea-green
+                     "#0eb40e"
+                   "#54aa0e"))
       (orange-red "#ff4500")
       (red "#ef1500")
       (whitespace-fg "#555f55")

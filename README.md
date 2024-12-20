@@ -63,9 +63,19 @@ There are a couple of styling options available. It's best to check out
 ## Screenshots
 
 ### Org, Emacs Lisp, Nix
+#### `naga`
 
-![A screenshot of the naga theme, showing org-mode, nix-mode, and some Emacs Lisp](https://i.imgur.com/AkcFGhx.png)
+![A screenshot of the naga theme, showing org-mode, nix-mode, and some Emacs Lisp](https://i.imgur.com/NzeuDtP.png)
+
+#### `naga-dimmed`
+
+![A screenshot of the naga-dimmed theme, showing org-mode, nix-mode, and some Emacs Lisp](https://i.imgur.com/MxZ5o1u.png)
 
 ### Haskell, Magit, Diredfl
+#### `naga`
 
-![A screenshot of the naga theme, showing Haskell code, diredfl, and a magit status buffer](https://i.imgur.com/JKFGqfk.png)
+![A screenshot of the naga theme, showing Haskell code, diredfl, and a magit status buffer](https://i.imgur.com/UJ255uS.png)
+
+#### `naga-dimmed`
+
+![A screenshot of the naga-dimmed theme, showing Haskell code, diredfl, and a magit status buffer](https://i.imgur.com/700CuLt.png)

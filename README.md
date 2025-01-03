@@ -33,14 +33,17 @@ weird results, make sure to `M-x disable-theme` other themes.)
 
 ### `use-package`
 
-Add the following to your `init.el`:
+Add the following to your `init.el`; this lists all the options you may set, but
+default values are fine here as well:
 
 ```elisp
 (use-package naga-theme
   :config
-  ;; If you wish to disable accentuated org blocks
-  (setq naga-theme-use-lighter-org-block-background nil)
-  (setq naga-theme-modeline-style 'filled-green)
+  (setq naga-theme-use-lighter-org-block-background t)
+  (setq naga-theme-surround-org-blocks t)
+  (setq naga-theme-modeline-style 'green-box)
+  (setq naga-theme-use-red-cursor nil)
+  (setq naga-theme-use-legacy-sea-green nil)
   (load-theme 'naga t))
 ```
 

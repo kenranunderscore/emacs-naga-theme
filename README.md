@@ -11,8 +11,7 @@ only styles packages I actually use plus a small number of others.
 Aside from the main `naga` theme, this package now ships with a more muted,
 lower-contrast variant called `naga-dimmed`.
 
-[Screenshots below](#screenshots), but note that they're a bit outdated
-color-wise.
+For screenshots [see below](#screenshots).
 
 Feel free to create issues in case you find something that doesn't look good
 with any variant, and I'll check it out.

@@ -321,6 +321,11 @@ for instance) instead of the newer reddish green."
 
      ;; sly
      (sly-mrepl-output-face (:foreground ,purple))
+
+     ;; asciidoc / adoc
+     (adoc-gen-face ())
+     (adoc-verbatim-face (:foreground ,purple))
+     (adoc-meta-face (:inherit (font-lock-comment-face)))
      )))
 
 (provide 'naga-base)

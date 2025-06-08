@@ -326,6 +326,12 @@ for instance) instead of the newer reddish green."
      (adoc-gen-face ())
      (adoc-verbatim-face (:foreground ,purple))
      (adoc-meta-face (:inherit (font-lock-comment-face)))
+
+     ;; web-mode
+     (web-mode-html-tag-face (:inherit (font-lock-function-name-face)))
+     (web-mode-doctype-face (:inherit (font-lock-doc-face)))
+     (web-mode-html-attr-name-face (:inherit (font-lock-variable-name-face)))
+     (web-mode-html-tag-bracket-face (:inherit default))
      )))
 
 (provide 'naga-base)

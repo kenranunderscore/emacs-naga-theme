@@ -1,4 +1,4 @@
-;;; naga-theme.el --- Dark color theme with green foreground color
+;;; naga-theme.el --- Dark color theme with green foreground color  -*- lexical-binding: t; -*-
 
 ;; Author: Johannes Maier <johannes.maier@mailbox.org>
 
@@ -34,34 +34,34 @@
     (unless (featurep 'naga-base)
       (load-file (expand-file-name "naga-base.el" dir)))))
 
-(let ((bg "#040404")
-      (bg-green "#041a04")
-      (fg "#0ac30a")
-      (fg-medium "#089e08")
-      (fg-dark "#078807")
-      (yellow "#eec900")
-      (gold "#eead0e")
-      (cyan "#00bfb0")
-      (string "#b3ee3a")
-      (purple "#cc59d2")
-      (orange "#ff9000")
-      (comment "#707370")
-      (comment-light "#909590")
-      (comment-dark "#353535")
-      (docstring "#698b22")
-      (grey "#aabaaa")
-      (dark-blue "#01018a")
-      (alt-green (if naga-theme-use-legacy-sea-green
-                     "#3cb371"
-                   "#60c410"))
-      (orange-red "#ff4500")
-      (red "#ff1500")
-      (whitespace-fg "#555f55")
-      (block "#060606")
-      (block-light "#252525")
-      (amaranth "#e52b50"))
-  (apply #'custom-theme-set-faces
-         (cons 'naga (naga--create-theme-colors))))
+(let ((palette
+       `(:bg "#040404"
+             :bg-green "#041a04"
+             :fg "#0ac30a"
+             :fg-medium "#089e08"
+             :fg-dark "#078807"
+             :yellow "#eec900"
+             :gold "#eead0e"
+             :cyan "#00bfb0"
+             :string "#b3ee3a"
+             :purple "#cc59d2"
+             :orange "#ff9000"
+             :comment "#707370"
+             :comment-light "#909590"
+             :comment-dark "#353535"
+             :docstring "#698b22"
+             :grey "#aabaaa"
+             :dark-blue "#01018a"
+             :alt-green ,(if naga-theme-use-legacy-sea-green
+                             "#3cb371"
+                           "#60c410")
+             :orange-red "#ff4500"
+             :red "#ff1500"
+             :whitespace-fg "#555f55"
+             :block "#060606"
+             :block-light "#252525"
+             :amaranth "#e52b50")))
+  (naga--apply-theme 'naga palette))
 
 (provide-theme 'naga)
 

@@ -1,4 +1,4 @@
-;;; naga.el --- Dark color theme(s) with green foreground color
+;;; naga.el --- Dark color theme(s) with green foreground color  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021-2024 Johannes Maier
 
@@ -74,265 +74,288 @@ for instance) instead of the newer reddish green."
   :group 'naga-theme
   :type 'boolean)
 
-(defun naga--create-theme-colors ()
-  "Expects the color variables to be bound."
-  (mapcar
-   (lambda (entry)
-     (list (car entry)
-           `((t ,@(cdr entry)))))
-   `((default (:foreground ,fg :background ,bg))
-     (minibuffer-prompt (:foreground ,string))
-     (highlight (:foreground ,fg :background ,dark-blue))
-     (region (:background ,dark-blue))
-     (secondary-selection
-      (:foreground "black" :background ,(color-darken-name "dark green" 7)))
-     (vertical-border (:foreground "gray30"))
-     (help-key-binding (:foreground ,fg :background ,bg-green :box ,fg))
-     (link (:foreground ,cyan :underline t))
-     (font-lock-builtin-face (:foreground ,orange))
-     (font-lock-comment-face (:foreground ,comment))
-     (font-lock-constant-face (:foreground ,purple))
-     (font-lock-doc-face (:slant oblique :foreground ,docstring))
-     (font-lock-function-name-face (:foreground ,cyan))
-     (font-lock-keyword-face (:foreground ,yellow))
-     (font-lock-preprocessor-face (:inherit (font-lock-constant-face)))
-     (font-lock-string-face (:foreground ,string))
-     (font-lock-type-face (:foreground ,alt-green))
-     (font-lock-variable-name-face (:foreground ,alt-green))
-     (font-lock-warning-face (:slant italic :foreground ,orange-red))
-     (fringe (:background ,bg))
-     (warning (:foreground ,orange-red :weight regular))
-     (header-line (:foreground ,grey :background ,block-light))
-     (mode-line ,(cond
-                  ((eq naga-theme-modeline-style 'golden-box)
-                   `(:background ,bg :foreground ,gold :box ,gold))
-                  ((eq naga-theme-modeline-style 'filled-green)
-                   `(:background ,fg-dark :foreground ,bg :box ,bg))
-                  ((eq naga-theme-modeline-style 'green-box)
-                   `(:background ,bg-green :foreground ,fg :box ,fg))))
-     (mode-line-buffer-id (:weight bold))
-     (mode-line-emphasis (:weight bold))
-     (mode-line-inactive (:box "#555555" :background ,bg :foreground ,comment))
-     (isearch (:foreground ,bg :weight semi-bold :background ,gold :underline t))
-     (lazy-highlight (:foreground ,fg :background "blue3" :underline t))
-     (show-paren-match (:foreground ,string :underline t :weight bold))
-     (show-paren-mismatch (:foreground "red" :background ,dark-blue))
-     (completions-common-part (:foreground ,purple :background "#160617"))
-     (error (:foreground ,red))
-     (success (:foreground ,fg))
-     (compilation-mode-line-run (:foreground ,yellow))
-     (cursor (:background ,(if naga-theme-use-red-cursor
-                               red
-                             fg)))
-     (shadow (:foreground ,comment-light))
-     (match (:foreground ,yellow :background ,bg-green :slant oblique))
+(defun naga--apply-theme (theme palette)
+  "Apply the colors in PALETTE to THEME."
+  (let* ((bg (plist-get palette :bg))
+         (bg-green (plist-get palette :bg-green))
+         (fg (plist-get palette :fg))
+         (fg-medium (plist-get palette :fg-medium))
+         (fg-dark (plist-get palette :fg-dark))
+         (yellow (plist-get palette :yellow))
+         (gold (plist-get palette :gold))
+         (cyan (plist-get palette :cyan))
+         (string (plist-get palette :string))
+         (purple (plist-get palette :purple))
+         (orange (plist-get palette :orange))
+         (comment (plist-get palette :comment))
+         (comment-dark (plist-get palette :comment-dark))
+         (comment-light (plist-get palette :comment-light))
+         (docstring (plist-get palette :docstring))
+         (grey (plist-get palette :grey))
+         (dark-blue (plist-get palette :dark-blue))
+         (alt-green (plist-get palette :alt-green))
+         (orange-red (plist-get palette :orange-red))
+         (red (plist-get palette :red))
+         (whitespace-fg (plist-get palette :whitespace-fg))
+         (block (plist-get palette :block))
+         (block-light (plist-get palette :block-light))
+         (amaranth (plist-get palette :))
+         (colors (mapcar
+                  (lambda (entry)
+                    (list (car entry)
+                          `((t ,@(cdr entry)))))
+                  `((default (:foreground ,fg :background ,bg))
+                    (minibuffer-prompt (:foreground ,string))
+                    (highlight (:foreground ,fg :background ,dark-blue))
+                    (region (:background ,dark-blue))
+                    (secondary-selection
+                     (:foreground "black" :background ,(color-darken-name "dark green" 7)))
+                    (vertical-border (:foreground "gray30"))
+                    (help-key-binding (:foreground ,fg :background ,bg-green :box ,fg))
+                    (link (:foreground ,cyan :underline t))
+                    (font-lock-builtin-face (:foreground ,orange))
+                    (font-lock-comment-face (:foreground ,comment))
+                    (font-lock-constant-face (:foreground ,purple))
+                    (font-lock-doc-face (:slant oblique :foreground ,docstring))
+                    (font-lock-function-name-face (:foreground ,cyan))
+                    (font-lock-keyword-face (:foreground ,yellow))
+                    (font-lock-preprocessor-face (:inherit (font-lock-constant-face)))
+                    (font-lock-string-face (:foreground ,string))
+                    (font-lock-type-face (:foreground ,alt-green))
+                    (font-lock-variable-name-face (:foreground ,alt-green))
+                    (font-lock-warning-face (:slant italic :foreground ,orange-red))
+                    (fringe (:background ,bg))
+                    (warning (:foreground ,orange-red :weight regular))
+                    (header-line (:foreground ,grey :background ,block-light))
+                    (mode-line ,(cond
+                                 ((eq naga-theme-modeline-style 'golden-box)
+                                  `(:background ,bg :foreground ,gold :box ,gold))
+                                 ((eq naga-theme-modeline-style 'filled-green)
+                                  `(:background ,fg-dark :foreground ,bg :box ,bg))
+                                 ((eq naga-theme-modeline-style 'green-box)
+                                  `(:background ,bg-green :foreground ,fg :box ,fg))))
+                    (mode-line-buffer-id (:weight bold))
+                    (mode-line-emphasis (:weight bold))
+                    (mode-line-inactive (:box "#555555" :background ,bg :foreground ,comment))
+                    (isearch (:foreground ,bg :weight semi-bold :background ,gold :underline t))
+                    (lazy-highlight (:foreground ,fg :background "blue3" :underline t))
+                    (show-paren-match (:foreground ,string :underline t :weight bold))
+                    (show-paren-mismatch (:foreground "red" :background ,dark-blue))
+                    (completions-common-part (:foreground ,purple :background "#160617"))
+                    (error (:foreground ,red))
+                    (success (:foreground ,fg))
+                    (compilation-mode-line-run (:foreground ,yellow))
+                    (cursor (:background ,(if naga-theme-use-red-cursor
+                                              red
+                                            fg)))
+                    (shadow (:foreground ,comment-light))
+                    (match (:foreground ,yellow :background ,bg-green :slant oblique))
 
-     ;; orderless
-     (orderless-match-face-0 (:inherit 'completions-common-part))
-     (orderless-match-face-1 (:foreground ,orange :background "#190e00"))
-     (orderless-match-face-2 (:foreground ,string :background "#131b02"))
-     (orderless-match-face-3 (:foreground ,comment-light :background "#0e0f0e"))
+                    ;; orderless
+                    (orderless-match-face-0 (:inherit 'completions-common-part))
+                    (orderless-match-face-1 (:foreground ,orange :background "#190e00"))
+                    (orderless-match-face-2 (:foreground ,string :background "#131b02"))
+                    (orderless-match-face-3 (:foreground ,comment-light :background "#0e0f0e"))
 
-     ;; outline-*, and by extension org-level-*
-     (outline-1 (:weight bold :foreground ,fg))
-     (outline-2 (:foreground ,gold))
-     (outline-3 (:foreground ,cyan))
-     (outline-4 (:foreground ,orange))
-     (outline-5 (:foreground ,purple))
-     (outline-6 (:foreground ,string))
-     (outline-7 (:foreground ,alt-green))
-     (outline-8 (:foreground "dark khaki"))
+                    ;; outline-*, and by extension org-level-*
+                    (outline-1 (:weight bold :foreground ,fg))
+                    (outline-2 (:foreground ,gold))
+                    (outline-3 (:foreground ,cyan))
+                    (outline-4 (:foreground ,orange))
+                    (outline-5 (:foreground ,purple))
+                    (outline-6 (:foreground ,string))
+                    (outline-7 (:foreground ,alt-green))
+                    (outline-8 (:foreground "dark khaki"))
 
-     ;; company
-     (company-tooltip (:background ,bg))
-     (company-tooltip-common (:foreground ,orange))
-     (company-tooltip-selection (:background ,dark-blue :weight bold))
-     (company-tooltip-annotation (:foreground ,comment))
+                    ;; company
+                    (company-tooltip (:background ,bg))
+                    (company-tooltip-common (:foreground ,orange))
+                    (company-tooltip-selection (:background ,dark-blue :weight bold))
+                    (company-tooltip-annotation (:foreground ,comment))
 
-     ;; corfu
-     (corfu-current (:inherit 'highlight))
-     (corfu-default (:background "#090909"))
-     (corfu-border (:background ,fg-dark))
-     (corfu-bar (:background ,comment-light))
+                    ;; corfu
+                    (corfu-current (:inherit 'highlight))
+                    (corfu-default (:background "#090909"))
+                    (corfu-border (:background ,fg-dark))
+                    (corfu-bar (:background ,comment-light))
 
-     ;; which-key
-     (which-key-key-face (:foreground ,yellow))
-     (which-key-group-description-face (:foreground ,alt-green))
-     (which-key-command-description-face (:foreground ,fg))
+                    ;; which-key
+                    (which-key-key-face (:foreground ,yellow))
+                    (which-key-group-description-face (:foreground ,alt-green))
+                    (which-key-command-description-face (:foreground ,fg))
 
-     ;; marginalia
-     (marginalia-file-priv-dir (:inherit 'font-lock-keyword-face))
-     (marginalia-file-priv-no (:inherit 'font-lock-comment-face))
-     (marginalia-file-priv-exec (:inherit 'font-lock-function-name-face))
-     (marginalia-file-priv-link (:inherit 'font-lock-keyword-face))
-     (marginalia-file-priv-rare (:inherit 'font-lock-variable-name-face))
-     (marginalia-file-priv-read (:inherit 'font-lock-type-face))
-     (marginalia-file-priv-write (:inherit 'font-lock-builtin-face))
-     (marginalia-file-priv-other (:inherit 'font-lock-constant-face))
-     (marginalia-date (:foreground ,gold))
-     (marginalia-number (:inherit 'font-lock-constant-face))
+                    ;; marginalia
+                    (marginalia-file-priv-dir (:inherit 'font-lock-keyword-face))
+                    (marginalia-file-priv-no (:inherit 'font-lock-comment-face))
+                    (marginalia-file-priv-exec (:inherit 'font-lock-function-name-face))
+                    (marginalia-file-priv-link (:inherit 'font-lock-keyword-face))
+                    (marginalia-file-priv-rare (:inherit 'font-lock-variable-name-face))
+                    (marginalia-file-priv-read (:inherit 'font-lock-type-face))
+                    (marginalia-file-priv-write (:inherit 'font-lock-builtin-face))
+                    (marginalia-file-priv-other (:inherit 'font-lock-constant-face))
+                    (marginalia-date (:foreground ,gold))
+                    (marginalia-number (:inherit 'font-lock-constant-face))
 
-     ;; dired and related
-     (diredfl-dir-name (:foreground ,string))
-     (diredfl-dir-heading (:slant oblique :weight bold :foreground ,alt-green))
-     (diredfl-file-name (:foreground ,fg))
-     (diredfl-file-suffix (:foreground ,fg))
-     (diredfl-ignored-file-name (:inherit (font-lock-comment-face)))
-     (diredfl-dir-priv (:inherit 'marginalia-file-priv-dir))
-     (diredfl-no-priv (:inherit 'marginalia-file-priv-no))
-     (diredfl-exec-priv (:inherit 'marginalia-file-priv-exec))
-     (diredfl-link-priv (:inherit 'marginalia-file-priv-link))
-     (diredfl-rare-priv (:inherit 'marginalia-file-priv-rare))
-     (diredfl-read-priv (:inherit 'marginalia-file-priv-read))
-     (diredfl-other-priv (:inherit 'marginalia-file-priv-other))
-     (diredfl-write-priv (:inherit 'marginalia-file-priv-write))
-     (diredfl-compressed-file-suffix (:foreground ,fg-dark :slant italic))
-     (diredfl-compressed-file-name (:foreground ,fg-dark :slant italic))
-     (diredfl-symlink (:foreground ,cyan))
-     (diredfl-deletion (:foreground ,orange-red))
-     (diredfl-deletion-file-name (:foreground ,orange-red))
-     (diredfl-flag-mark-line (:background "#033903"))
-     (diredfl-flag-mark (:weight bold :foreground ,cyan))
-     (diredfl-date-time (:inherit 'marginalia-date))
-     (diredfl-number (:inherit 'marginalia-number))
+                    ;; dired and related
+                    (diredfl-dir-name (:foreground ,string))
+                    (diredfl-dir-heading (:slant oblique :weight bold :foreground ,alt-green))
+                    (diredfl-file-name (:foreground ,fg))
+                    (diredfl-file-suffix (:foreground ,fg))
+                    (diredfl-ignored-file-name (:inherit (font-lock-comment-face)))
+                    (diredfl-dir-priv (:inherit 'marginalia-file-priv-dir))
+                    (diredfl-no-priv (:inherit 'marginalia-file-priv-no))
+                    (diredfl-exec-priv (:inherit 'marginalia-file-priv-exec))
+                    (diredfl-link-priv (:inherit 'marginalia-file-priv-link))
+                    (diredfl-rare-priv (:inherit 'marginalia-file-priv-rare))
+                    (diredfl-read-priv (:inherit 'marginalia-file-priv-read))
+                    (diredfl-other-priv (:inherit 'marginalia-file-priv-other))
+                    (diredfl-write-priv (:inherit 'marginalia-file-priv-write))
+                    (diredfl-compressed-file-suffix (:foreground ,fg-dark :slant italic))
+                    (diredfl-compressed-file-name (:foreground ,fg-dark :slant italic))
+                    (diredfl-symlink (:foreground ,cyan))
+                    (diredfl-deletion (:foreground ,orange-red))
+                    (diredfl-deletion-file-name (:foreground ,orange-red))
+                    (diredfl-flag-mark-line (:background "#033903"))
+                    (diredfl-flag-mark (:weight bold :foreground ,cyan))
+                    (diredfl-date-time (:inherit 'marginalia-date))
+                    (diredfl-number (:inherit 'marginalia-number))
 
-     ;; line numbers
-     (line-number (:foreground "gray15"))
-     (line-number-current-line (:foreground "dark green"))
+                    ;; line numbers
+                    (line-number (:foreground "gray15"))
+                    (line-number-current-line (:foreground "dark green"))
 
-     ;; org
-     (org-todo (:foreground ,orange-red :weight bold))
-     (org-done (:foreground ,fg :weight bold))
-     (org-headline-todo (:foreground ,orange-red))
-     (org-headline-done (:foreground ,comment :strike-through t))
-     (org-document-title (:foreground ,cyan :weight bold))
-     (org-document-info (:foreground ,cyan))
-     (org-verbatim (:foreground ,purple))
-     (org-code (:foreground ,string))
-     (org-block (:background ,(if naga-theme-use-lighter-org-block-background
-                                  block
-                                bg)))
-     (org-block-begin-line (:slant oblique :foreground ,comment-dark :underline ,naga-theme-surround-org-blocks :extend t))
-     (org-block-end-line (:slant oblique :foreground ,comment-dark :overline ,naga-theme-surround-org-blocks :extend t))
-     (org-special-keyword (:foreground ,comment))
-     (org-link (:foreground ,cyan))
+                    ;; org
+                    (org-todo (:foreground ,orange-red :weight bold))
+                    (org-done (:foreground ,fg :weight bold))
+                    (org-headline-todo (:foreground ,orange-red))
+                    (org-headline-done (:foreground ,comment :strike-through t))
+                    (org-document-title (:foreground ,cyan :weight bold))
+                    (org-document-info (:foreground ,cyan))
+                    (org-verbatim (:foreground ,purple))
+                    (org-code (:foreground ,string))
+                    (org-block (:background ,(if naga-theme-use-lighter-org-block-background
+                                                 block
+                                               bg)))
+                    (org-block-begin-line (:slant oblique :foreground ,comment-dark :underline ,naga-theme-surround-org-blocks :extend t))
+                    (org-block-end-line (:slant oblique :foreground ,comment-dark :overline ,naga-theme-surround-org-blocks :extend t))
+                    (org-special-keyword (:foreground ,comment))
+                    (org-link (:foreground ,cyan))
 
-     ;; magit
-     (magit-section-heading (:foreground ,orange :weight semi-bold))
-     (magit-section-highlight (:background ,dark-blue))
-     (magit-branch-local (:foreground ,yellow))
-     (magit-branch-remote (:foreground ,cyan))
-     (magit-tag (:foreground ,string))
-     (magit-diff-file-heading-highlight (:background ,dark-blue))
-     (magit-diff-context-highlight (:background "#0e0e11" :foreground "#809080"))
-     (magit-diff-context (:foreground ,comment))
-     (magit-diff-hunk-heading (:background "#151515" :foreground ,comment-light :slant oblique))
-     (magit-diff-hunk-heading-highlight (:slant oblique :weight bold :background "#242424" :foreground ,gold))
-     (magit-diff-added (:background "#042104" :foreground ,fg-medium))
-     (magit-diff-added-highlight (:inherit 'magit-diff-added :foreground ,fg))
-     (diff-refine-added (:foreground ,bg :background ,fg-dark))
-     (magit-diff-removed (:background "#210503" :foreground "#be1008"))
-     (magit-diff-removed-highlight (:inherit 'magit-diff-removed :foreground "#de2018"))
-     (diff-refine-removed (:foreground ,bg :background "#be1008"))
-     (magit-diff-base (:background ,docstring :foreground ,bg)) ;; FIXME
-     (magit-diff-base-highlight (:inherit 'magit-diff-base))
+                    ;; magit
+                    (magit-section-heading (:foreground ,orange :weight semi-bold))
+                    (magit-section-highlight (:background ,dark-blue))
+                    (magit-branch-local (:foreground ,yellow))
+                    (magit-branch-remote (:foreground ,cyan))
+                    (magit-tag (:foreground ,string))
+                    (magit-diff-file-heading-highlight (:background ,dark-blue))
+                    (magit-diff-context-highlight (:background "#0e0e11" :foreground "#809080"))
+                    (magit-diff-context (:foreground ,comment))
+                    (magit-diff-hunk-heading (:background "#151515" :foreground ,comment-light :slant oblique))
+                    (magit-diff-hunk-heading-highlight (:slant oblique :weight bold :background "#242424" :foreground ,gold))
+                    (magit-diff-added (:background "#042104" :foreground ,fg-medium))
+                    (magit-diff-added-highlight (:inherit 'magit-diff-added :foreground ,fg))
+                    (diff-refine-added (:foreground ,bg :background ,fg-dark))
+                    (magit-diff-removed (:background "#210503" :foreground "#be1008"))
+                    (magit-diff-removed-highlight (:inherit 'magit-diff-removed :foreground "#de2018"))
+                    (diff-refine-removed (:foreground ,bg :background "#be1008"))
+                    (magit-diff-base (:background ,docstring :foreground ,bg)) ;; FIXME
+                    (magit-diff-base-highlight (:inherit 'magit-diff-base))
 
-     ;; manpages
-     (Man-overstrike (:foreground ,cyan))
+                    ;; manpages
+                    (Man-overstrike (:foreground ,cyan))
 
-     ;; mu4e
-     (mu4e-highlight-face (:weight semi-bold :foreground ,orange))
+                    ;; mu4e
+                    (mu4e-highlight-face (:weight semi-bold :foreground ,orange))
 
-     ;; notmuch
-     (notmuch-tag-unread (:weight semi-bold :foreground ,gold))
+                    ;; notmuch
+                    (notmuch-tag-unread (:weight semi-bold :foreground ,gold))
 
-     ;; whitespace-mode
-     (whitespace-space (:foreground ,whitespace-fg :background ,bg))
-     (whitespace-tab (:foreground ,whitespace-fg :background ,bg))
-     (whitespace-line (:foreground ,orange-red :background ,bg))
-     (whitespace-newline (:foreground ,whitespace-fg :background ,bg))
-     (whitespace-empty (:foreground ,red :background ,yellow))
-     (whitespace-indentation (:foreground ,red :background ,yellow))
-     (whitespace-space-before-tab (:foreground ,red :background ,orange))
-     (whitespace-space-after-tab (:foreground ,red :background ,yellow))
-     (whitespace-missing-newline-at-eof (:background ,string))
-     (whitespace-trailing (:background ,red))
-     (whitespace-big-indent (:background ,red))
+                    ;; whitespace-mode
+                    (whitespace-space (:foreground ,whitespace-fg :background ,bg))
+                    (whitespace-tab (:foreground ,whitespace-fg :background ,bg))
+                    (whitespace-line (:foreground ,orange-red :background ,bg))
+                    (whitespace-newline (:foreground ,whitespace-fg :background ,bg))
+                    (whitespace-empty (:foreground ,red :background ,yellow))
+                    (whitespace-indentation (:foreground ,red :background ,yellow))
+                    (whitespace-space-before-tab (:foreground ,red :background ,orange))
+                    (whitespace-space-after-tab (:foreground ,red :background ,yellow))
+                    (whitespace-missing-newline-at-eof (:background ,string))
+                    (whitespace-trailing (:background ,red))
+                    (whitespace-big-indent (:background ,red))
 
-     ;; shortdoc
-     (shortdoc-section (:inherit 'default))
-     (shortdoc-heading (:inherit 'default :weight bold :height 1.3))
+                    ;; shortdoc
+                    (shortdoc-section (:inherit 'default))
+                    (shortdoc-heading (:inherit 'default :weight bold :height 1.3))
 
-     ;; gnus and message-mode
-     (gnus-header (:inherit default))
+                    ;; gnus and message-mode
+                    (gnus-header (:inherit default))
 
-     ;; helm
-     (helm-match (:inherit 'orderless-match-face-0))
-     (helm-source-header (:foreground ,bg :background ,fg))
-     (helm-header (:foreground ,alt-green))
-     (helm-selection (:foreground ,fg :background ,dark-blue))
-     (helm-M-x-key (:foreground ,gold :background ,bg :box ,gold))
-     (helm-ff-directory (:foreground ,string :background ,bg))
-     (helm-buffer-directory (:inherit helm-ff-directory))
-     (helm-ff-dotted-directory (:foreground ,fg :background ,bg))
-     (helm-ff-dotted-symlink-directory (:foreground ,dark-blue :background ,bg))
+                    ;; helm
+                    (helm-match (:inherit 'orderless-match-face-0))
+                    (helm-source-header (:foreground ,bg :background ,fg))
+                    (helm-header (:foreground ,alt-green))
+                    (helm-selection (:foreground ,fg :background ,dark-blue))
+                    (helm-M-x-key (:foreground ,gold :background ,bg :box ,gold))
+                    (helm-ff-directory (:foreground ,string :background ,bg))
+                    (helm-buffer-directory (:inherit helm-ff-directory))
+                    (helm-ff-dotted-directory (:foreground ,fg :background ,bg))
+                    (helm-ff-dotted-symlink-directory (:foreground ,dark-blue :background ,bg))
 
-     ;; ivy
-     (ivy-current-match (:inherit 'highlight))
-     (ivy-minibuffer-match-face-1 (:foreground ,fg))
-     (ivy-minibuffer-match-face-2 (:inherit 'orderless-match-face-0))
-     (ivy-minibuffer-match-face-3 (:inherit 'orderless-match-face-1))
-     (ivy-minibuffer-match-face-4 (:inherit 'orderless-match-face-2))
+                    ;; ivy
+                    (ivy-current-match (:inherit 'highlight))
+                    (ivy-minibuffer-match-face-1 (:foreground ,fg))
+                    (ivy-minibuffer-match-face-2 (:inherit 'orderless-match-face-0))
+                    (ivy-minibuffer-match-face-3 (:inherit 'orderless-match-face-1))
+                    (ivy-minibuffer-match-face-4 (:inherit 'orderless-match-face-2))
 
-     ;; envrc
-     (envrc-mode-line-none-face (:foreground ,fg))
-     (envrc-mode-line-on-face (:foreground ,string))
-     (envrc-mode-line-error-face (:inherit 'error))
+                    ;; envrc
+                    (envrc-mode-line-none-face (:foreground ,fg))
+                    (envrc-mode-line-on-face (:foreground ,string))
+                    (envrc-mode-line-error-face (:inherit 'error))
 
-     ;; hydra
-     (hydra-face-red (:foreground ,orange-red))
-     (hydra-face-blue (:foreground ,cyan))
-     (hydra-face-pink (:foreground ,purple))
-     (hydra-face-amaranth (:foreground ,amaranth))
-     (hydra-face-teal (:foreground ,alt-green))
+                    ;; hydra
+                    (hydra-face-red (:foreground ,orange-red))
+                    (hydra-face-blue (:foreground ,cyan))
+                    (hydra-face-pink (:foreground ,purple))
+                    (hydra-face-amaranth (:foreground ,amaranth))
+                    (hydra-face-teal (:foreground ,alt-green))
 
-     ;; vterm NOTE: vterm doesn't use the whole face description (or
-     ;; these would not make sense at all), but rather seems to pick
-     ;; either foreground or background color as actual foreground,
-     ;; hence the duplicated color values.
-     (vterm-color-red (:foreground ,red :background ,red))
-     (vterm-color-blue (:foreground ,cyan :background ,cyan))
-     (vterm-color-black (:foreground ,comment :background ,comment))
-     (vterm-color-yellow (:foreground ,gold :background ,gold))
-     (vterm-color-green (:foreground ,string :background ,string))
-     (vterm-color-cyan (:foreground ,cyan :background ,cyan))
-     (vterm-color-white (:foreground ,fg :background ,bg))
-     (vterm-color-magenta (:foreground ,purple :background ,purple))
+                    ;; vterm NOTE: vterm doesn't use the whole face description (or
+                    ;; these would not make sense at all), but rather seems to pick
+                    ;; either foreground or background color as actual foreground,
+                    ;; hence the duplicated color values.
+                    (vterm-color-red (:foreground ,red :background ,red))
+                    (vterm-color-blue (:foreground ,cyan :background ,cyan))
+                    (vterm-color-black (:foreground ,comment :background ,comment))
+                    (vterm-color-yellow (:foreground ,gold :background ,gold))
+                    (vterm-color-green (:foreground ,string :background ,string))
+                    (vterm-color-cyan (:foreground ,cyan :background ,cyan))
+                    (vterm-color-white (:foreground ,fg :background ,bg))
+                    (vterm-color-magenta (:foreground ,purple :background ,purple))
 
-     ;; eglot
-     (eglot-highlight-symbol-face (:foreground ,fg :background ,bg-green :weight bold))
+                    ;; eglot
+                    (eglot-highlight-symbol-face (:foreground ,fg :background ,bg-green :weight bold))
 
-     ;; tuareg (OCaml)
-     (tuareg-font-lock-governing-face (:foreground ,fg-medium :weight bold :underline t))
-     (tuareg-font-lock-operator-face (:foreground ,orange))
+                    ;; tuareg (OCaml)
+                    (tuareg-font-lock-governing-face (:foreground ,fg-medium :weight bold :underline t))
+                    (tuareg-font-lock-operator-face (:foreground ,orange))
 
-     ;; vertico-posframe
-     (vertico-posframe-border (:background ,comment-dark))
+                    ;; vertico-posframe
+                    (vertico-posframe-border (:background ,comment-dark))
 
-     ;; sly
-     (sly-mrepl-output-face (:foreground ,purple))
+                    ;; sly
+                    (sly-mrepl-output-face (:foreground ,purple))
 
-     ;; asciidoc / adoc
-     (adoc-gen-face ())
-     (adoc-verbatim-face (:foreground ,purple))
-     (adoc-meta-face (:inherit (font-lock-comment-face)))
+                    ;; asciidoc / adoc
+                    (adoc-gen-face ())
+                    (adoc-verbatim-face (:foreground ,purple))
+                    (adoc-meta-face (:inherit (font-lock-comment-face)))
 
-     ;; web-mode
-     (web-mode-html-tag-face (:inherit (font-lock-function-name-face)))
-     (web-mode-doctype-face (:inherit (font-lock-doc-face)))
-     (web-mode-html-attr-name-face (:inherit (font-lock-variable-name-face)))
-     (web-mode-html-tag-bracket-face (:inherit default))
-     )))
+                    (web-mode-html-tag-face (:inherit (font-lock-function-name-face)))
+                    (web-mode-doctype-face (:inherit (font-lock-doc-face)))
+                    (web-mode-html-attr-name-face (:inherit (font-lock-variable-name-face)))
+                    (web-mode-html-tag-bracket-face (:inherit default))))))
+    (apply #'custom-theme-set-faces theme colors)))
 
 (provide 'naga-base)
 
